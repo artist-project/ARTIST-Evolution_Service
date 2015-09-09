@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Antlr4.4.3.0\build\Antlr4.props" Condition="Exists('..\packages\Antlr4.4.3.0\build\Antlr4.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C526BBF-1349-450B-B0A2-BBB225E3FC06}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EvolutionService.Engine</RootNamespace>
+    <AssemblyName>EvolutionService.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>6ec4f1b8</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime.net45">
+      <HintPath>..\packages\Antlr4.Runtime.4.3.0\lib\net45\Antlr4.Runtime.net45.dll</HintPath>
+    </Reference>
+    <Reference Include="NRules">
+      <HintPath>..\packages\NRules.0.2.4\lib\net40\NRules.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atl\ATL.g4.lexer.cs">
+      <DependentUpon>ATL.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Atl\ATL.g4.parser.cs">
+      <DependentUpon>ATL.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Atl\ATLModelParser.cs" />
+    <Compile Include="Atl\BasicAtlVisitor.cs" />
+    <Compile Include="Atl\Definitions\Definitions.cs" />
+    <Compile Include="Atl\Domain\Helper.cs" />
+    <Compile Include="Atl\Domain\InModel.cs" />
+    <Compile Include="Atl\Domain\Library.cs" />
+    <Compile Include="Atl\Domain\LibraryRef.cs" />
+    <Compile Include="Atl\Domain\Model.cs" />
+    <Compile Include="Atl\Domain\ModelElement.cs" />
+    <Compile Include="Atl\Domain\Module.cs" />
+    <Compile Include="Atl\Domain\OutModel.cs" />
+    <Compile Include="Atl\Domain\Rule.cs" />
+    <Compile Include="Atl\Domain\SourceModel.cs" />
+    <Compile Include="Atl\Domain\TargetModel.cs" />
+    <Compile Include="Atl\Rules\Rules.cs" />
+    <Compile Include="ChangeDefinition.cs" />
+    <Compile Include="Core\Basic\BasicPipeLine.cs" />
+    <Compile Include="Core\Basic\Discover.cs" />
+    <Compile Include="Core\Basic\Gather.cs" />
+    <Compile Include="Core\Basic\Render.cs" />
+    <Compile Include="Core\FactBaseProcessor.cs" />
+    <Compile Include="Core\IModelParser.cs" />
+    <Compile Include="Core\ModelComparer.cs" />
+    <Compile Include="Core\ExecutionContext.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="Core\ParserFactory.cs" />
+    <Compile Include="Core\IOperation.cs" />
+    <Compile Include="Core\PipeLine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text\Content.cs" />
+    <Compile Include="Text\TextModelParser.cs" />
+    <Compile Include="Utilities\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Antlr4 Include="Atl\ATL.g4">
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>EvolutionService.Engine.Atl</CustomToolNamespace>
+    </Antlr4>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Antlr4.4.3.0\build\Antlr4.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr4.4.3.0\build\Antlr4.props'))" />
+    <Error Condition="!Exists('..\packages\Antlr4.4.3.0\build\Antlr4.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr4.4.3.0\build\Antlr4.targets'))" />
+  </Target>
+  <Import Project="..\packages\Antlr4.4.3.0\build\Antlr4.targets" Condition="Exists('..\packages\Antlr4.4.3.0\build\Antlr4.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

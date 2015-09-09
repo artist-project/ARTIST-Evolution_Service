@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<compare:Comparison xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:compare="http://www.eclipse.org/emf/compare">
+  <matchedResources leftURI="Version1.ecore" rightURI="Version4.ecore"/>
+  <matches>
+    <submatches>
+      <left href="Version1.ecore#//A"/>
+    </submatches>
+    <submatches>
+      <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@differences.0">
+        <reference href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eSuperTypes"/>
+        <value href="Version1.ecore#//A"/>
+      </differences>
+      <left href="Version1.ecore#//B"/>
+      <right href="Version4.ecore#//B"/>
+    </submatches>
+    <submatches>
+      <left href="Version1.ecore#//C"/>
+      <right href="Version4.ecore#//C"/>
+    </submatches>
+    <differences xsi:type="compare:ReferenceChange" requiredBy="//@matches.0/@submatches.1/@differences.0">
+      <reference href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      <value href="Version1.ecore#//A"/>
+    </differences>
+    <left href="Version1.ecore#/"/>
+    <right href="Version4.ecore#/"/>
+  </matches>
+</compare:Comparison>

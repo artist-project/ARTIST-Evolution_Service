@@ -1,0 +1,332 @@
+{
+	"id": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+	"name": "Artist Evolution Service",
+	"description": "The web service supporting artefact evolution in the EU Artist project.",
+	"order": [],
+	"folders": [
+		{
+			"id": "d67e5dc1-48ef-05b3-e229-121fb5ce0a1b",
+			"name": "Account",
+			"description": "",
+			"order": [
+				"9e413357-c117-9907-227d-e708cba52cef",
+				"3fe8bdd0-ada1-a5ed-ca36-c6b9d37a2ea2",
+				"ed850c72-976c-5764-031c-09fa1e98c260",
+				"83ec733d-b9e5-12e6-26fb-6760d63e7c50",
+				"fd2d9306-a5dd-4cbb-1e1a-b33f6c43cc5d",
+				"586cade7-0e2e-51eb-3aff-2a76e129bb5f",
+				"a90efb9f-9f61-90e9-b3b9-9080729cd966",
+				"024d711d-e7a1-8a8a-04df-d820c57b2cdd",
+				"37d3baa1-6d91-eefa-0146-28284f8380d5",
+				"0bde36d2-06e1-118a-ed35-98f8001bb1e2"
+			],
+			"collection_name": "Artist Evolution Service",
+			"collection_id": "f400a4c4-0e4c-acbd-e299-7b225510cd65"
+		},
+		{
+			"id": "7a1fedec-bc78-f3ce-b79a-8b544a0595be",
+			"name": "Execution",
+			"description": "",
+			"order": [
+				"370550ba-3bd1-b7b3-5080-33b8b72a1b55",
+				"21475486-3a0d-b17e-42ed-484afcb378fa"
+			],
+			"collection_name": "Artist Evolution Service",
+			"collection_id": "f400a4c4-0e4c-acbd-e299-7b225510cd65"
+		},
+		{
+			"id": "949b8bc1-a490-7187-a309-6510e8851992",
+			"name": "Upload",
+			"description": "",
+			"order": [
+				"6f27f5e8-a3e5-e155-21e7-285b90ef3ecf"
+			],
+			"collection_name": "Artist Evolution Service",
+			"collection_id": "f400a4c4-0e4c-acbd-e299-7b225510cd65"
+		}
+	],
+	"timestamp": 1398418684193,
+	"synced": false,
+	"requests": [
+		{
+			"id": "024d711d-e7a1-8a8a-04df-d820c57b2cdd",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/token",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "grant_type",
+					"value": "password",
+					"type": "text"
+				},
+				{
+					"key": "username",
+					"value": "bpellens",
+					"type": "text"
+				},
+				{
+					"key": "password",
+					"value": "123456789",
+					"type": "text"
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"time": 1398420691998,
+			"name": "Token (Local)",
+			"description": "Retrieve an OAuth token for the local account.",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "0bde36d2-06e1-118a-ed35-98f8001bb1e2",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer {{access_token}}\n",
+			"url": "{{host}}/api/account/registerExternal",
+			"pathVariables": {},
+			"method": "POST",
+			"data": "{\"UserName\": \"brampellens\"}",
+			"dataMode": "raw",
+			"name": "RegisterExternal",
+			"description": "Register an external (Google) account.",
+			"descriptionFormat": "html",
+			"time": 1398421628259,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "21475486-3a0d-b17e-42ed-484afcb378fa",
+			"headers": "",
+			"url": "{{host}}/api/v1/execution/{{execution}}",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "Version1",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "Version2",
+					"value": "",
+					"type": "file"
+				}
+			],
+			"dataMode": "params",
+			"name": "Execution",
+			"description": "Retrieve the results of a particular execution",
+			"descriptionFormat": "html",
+			"time": 1398426770651,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "370550ba-3bd1-b7b3-5080-33b8b72a1b55",
+			"headers": "",
+			"url": "{{host}}/api/v1/execution/{{execution}}/status",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "Version1",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "Version2",
+					"value": "",
+					"type": "file"
+				}
+			],
+			"dataMode": "params",
+			"name": "Execution Status",
+			"description": "Retrieve the status of a particular execution",
+			"descriptionFormat": "html",
+			"time": 1398426751802,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "37d3baa1-6d91-eefa-0146-28284f8380d5",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A60513%2F",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"name": "ExternalLogin",
+			"description": "Login to the service with an external account (i.e. Google)",
+			"descriptionFormat": "html",
+			"time": 1398421284776,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "3fe8bdd0-ada1-a5ed-ca36-c6b9d37a2ea2",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer R0t11OaCq6VDMorq8PDLjlj9xMCt5WtSP_UfaTDU9kg8JbIJdR2YDX2DEeh4WrXTUGq6-GXR0HgTC6vPIgS7sHFJ5knFAVMb2vX79rkCC7gMeVghgGivQzBfLLjB53KUlok_gaA5M8uInqcOX4G37kikeVu-0SUgNWL9s80yoLRCmIJR7TFMc-grC-W7Nf_c0Db-JyogTD5U3lI0MnVevfSg2EvqUtBneX3hyrT8ZwJ-nkzXGtuiTFY7K5-qdeLseuAtNCknw2qyJtQtWmfhgRtY0h6SbYLI8aXjP3-BLiAM-hvoy8QKxm0A9me-66RizImKIY_ZJ6z666vBAZcrwBK8aHOEta3gJmSOdtbuFQRpSr8b_BMVxFMQqhbEw5q88Fh9-Wd6saTmuAV8rlaMi4wADl8kEqFMvmaLQutDuhSWwQrBEkfYrbVXiobTkV-f\n",
+			"url": "{{host}}/api/Account/UserInfo",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"name": "UserInfo (with external token)",
+			"description": "Login using an external account but with a valid access token",
+			"descriptionFormat": "html",
+			"time": 1398423105623,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "586cade7-0e2e-51eb-3aff-2a76e129bb5f",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/Account/ManageInfo?returnUrl=/&generateState=true",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"name": "ManageInfo",
+			"description": "Manage the information of the current user.",
+			"descriptionFormat": "html",
+			"time": 1398419799258,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "6f27f5e8-a3e5-e155-21e7-285b90ef3ecf",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/v1/upload",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "Version1",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "Version2",
+					"value": "",
+					"type": "file"
+				}
+			],
+			"dataMode": "params",
+			"name": "Upload",
+			"description": "Submit two variants of a particular artefact to the service",
+			"descriptionFormat": "html",
+			"time": 1398426273632,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "83ec733d-b9e5-12e6-26fb-6760d63e7c50",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/Account/ExternalLogins?returnUrl=/",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1398419207977,
+			"name": "ExternalLogins",
+			"description": "Retrieve the URI endpoints for external authentication.",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "9e413357-c117-9907-227d-e708cba52cef",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer {{token}}\n",
+			"url": "{{host}}/api/Account/UserInfo",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1398420967698,
+			"name": "UserInfo (with internal token)",
+			"description": "Get the details on a particular user.",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "a90efb9f-9f61-90e9-b3b9-9080729cd966",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/Account/Logout",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "params",
+			"name": "Logout",
+			"description": "Log out the current user (i.e. end the session).",
+			"descriptionFormat": "html",
+			"time": 1398419910742,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "ed850c72-976c-5764-031c-09fa1e98c260",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/Account/UserInfo",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"name": "UserInfo (without token)",
+			"description": "Retrieve the user information without any authorization token",
+			"descriptionFormat": "html",
+			"time": 1398420900997,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		},
+		{
+			"id": "fd2d9306-a5dd-4cbb-1e1a-b33f6c43cc5d",
+			"headers": "Content-Type: application/json\n",
+			"url": "{{host}}/api/Account/Register",
+			"pathVariables": {},
+			"method": "POST",
+			"data": "{\"UserName\": \"bpellens\", \"Password\": \"123456789\", \"ConfirmPassword\": \"123456789\"}",
+			"dataMode": "raw",
+			"name": "Register",
+			"description": "Register a local account on the service.",
+			"descriptionFormat": "html",
+			"time": 1398419521432,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "f400a4c4-0e4c-acbd-e299-7b225510cd65",
+			"synced": false
+		}
+	]
+}

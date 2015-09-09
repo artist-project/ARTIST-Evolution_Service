@@ -1,0 +1,32 @@
+{
+    "environmentSettings": {
+        "webSite": {
+            "name": "EvolutionServiceApi",
+            "location": "West Europe"
+        },
+        "databases": [
+            {
+                "connectionStringName": "DefaultConnection",
+                "databaseName": "EvolutionServiceApi_db",
+                "serverName": "ca4jbl5mka",
+                "user": "EvolutionserviceDB",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "West Europe"
+            },
+            {
+                "connectionStringName": "EvolutionServiceContext",
+                "databaseName": "EvolutionServiceApiContent_db",
+                "serverName": "ca4jbl5mka",
+                "user": "EvolutionserviceDB",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "West Europe"
+            }
+        ]
+    }
+}
